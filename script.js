@@ -4,17 +4,17 @@ const affirmations = {
 		"Je suis capable d’accomplir tout ce que je me fixe.",
 		"Chaque jour est une opportunité de grandir.",
 		"Je mérite le succès et je vais l’atteindre.",
-		"Je choisis d’être positif/positive chaque jour.",
+		"Je choisis d’être positif.ve chaque jour.",
 		"Je suis maître de ma propre réussite.",
 		"Je crois en mes capacités à surmonter les défis.",
-		"Je suis déterminé/déterminée à réaliser mes objectifs.",
+		"Je suis déterminé.e à réaliser mes objectifs.",
 		"La paix intérieure commence par moi.",
 		"Je suis entouré(e) d’opportunités pour réussir.",
 		"Je fais des choix qui m’élèvent chaque jour.",
 		"Mon potentiel est illimité.",
-		"Je suis fier/fière de chaque petit pas que je fais.",
+		"Je suis fier.e de chaque petit pas que je fais.",
 		"Ma vision me guide vers le succès.",
-		"Je suis assez fort/forte pour affronter tous les obstacles.",
+		"Je suis assez fort.e pour affronter tous les obstacles.",
 		"Je crée ma propre réalité avec mes pensées.",
 		"Je suis en pleine évolution et je me dépasse chaque jour.",
 		"Je choisis de vivre ma vie avec confiance et gratitude.",
@@ -66,8 +66,8 @@ const affirmations = {
 };
 
 const subtitles = {
-	fr: "Votre dose quotidienne d'affirmations positives pour une année réussie.",
-	en: "Your daily dose of affirmations for a successful year.",
+	fr: "Votre dose quotidienne d'affirmations positives pour un début d'année réussie.",
+	en: "Your daily dose of affirmations for a successful new year.",
 };
 
 let currentLanguage = "fr";
@@ -75,9 +75,23 @@ let currentLanguage = "fr";
 function renderCalendar() {
 	const calendar = document.getElementById("calendar");
 	calendar.innerHTML = "";
+
+	const today = new Date();
+	const currentDay = today.getDate();
+
 	for (let i = 1; i <= 31; i++) {
 		const day = document.createElement("div");
 		day.className = "day";
+
+		if (i < currentDay) {
+			day.classList.add("passed");
+		} else if (i === currentDay) {
+			day.classList.add("today");
+		} else {
+			day.classList.add("future");
+			day.style.pointerEvents = "none";
+		}
+
 		day.textContent = i;
 		day.onclick = () => showMessage(i);
 		calendar.appendChild(day);
@@ -92,7 +106,10 @@ function showMessage(day) {
 			? "Message non disponible."
 			: "Message not available.");
 
-	const closeText = currentLanguage === "fr" ? "Fermer" : "Close";
+	const closeText =
+		currentLanguage === "fr"
+			? "Passe une belle journée ! Et n'oublie pas de revenir demain :)"
+			: "Have a beautiful day! And don't forget to come back tomorrrow :)";
 
 	messageBox.innerHTML = `<p>${message}</p><button onclick="closeMessage()">${closeText}</button>`;
 	messageBox.style.display = "block";
