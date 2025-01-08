@@ -4,11 +4,28 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-		<title></title>
+		<title>Positive January</title>
 	</head>
 	<body>
-		<h1></h1>
+		<div class="heading-container">
+			<div class="heading">
+				<h1>Positive January</h1>
+				<p id="subtitle">
+					Votre dose quotidienne d'affirmations positives pour une année réussie
+				</p>
+			</div>
+			<div class="buttons">
+				<button id="btn-fr" onclick="switchLanguage('fr')" class="language-btn">
+					FR
+				</button>
+				<button id="btn-en" onclick="switchLanguage('en')" class="language-btn">
+					EN
+				</button>
+			</div>
+		</div>
 
+		<div class="calendar" id="calendar"></div>
+		<div id="messageBox" class="message"></div>
 		<script src="script.js"></script>
 	</body>
 </html>

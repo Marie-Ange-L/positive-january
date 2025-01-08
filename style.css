@@ -1,16 +1,150 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic&display=swap);
-
-* {
-	box-sizing: border-box;
+body {
+	margin: 0;
+	font-family: "Arial", sans-serif;
+	background: #f4f4f4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
 }
 
-body {
-	font-family: "Roboto", sans-serif;
+.heading-container {
+	width: 520px;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+
+	padding: 10px 0;
+}
+
+.heading {
+	max-width: 70%;
+}
+
+/* Boutons de langue */
+.buttons {
+	display: flex;
+	align-items: flex-end;
+	margin: 20px 0;
+}
+
+.language-btn {
+	padding: 10px 15px;
+	background: lightgray;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+
+	transition: background 0.3s;
+}
+
+.language-btn#btn-fr {
+	margin-right: 10px;
+}
+
+.language-btn:hover {
+	color: darkgray;
+}
+
+.language-btn.active {
+	background-color: gray;
+	color: white;
+}
+
+.language-btn.inactive {
+	background-color: lightgray;
+	color: black;
+}
+
+/* Grille du calendrier */
+.calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 60px);
+	grid-gap: 10px;
+	padding: 20px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cases du calendrier */
+.day {
+	width: 60px;
+	height: 60px;
+	background: #ff6e71;
+	color: white;
+	display: flex;
 	justify-content: center;
-	height: 100vh;
-	overflow: hidden;
-	margin: 0;
+	align-items: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: transform 0.3s, background 0.3s;
+}
+
+.day:hover {
+	transform: scale(1.1);
+	background: #ff8c94;
+}
+
+/* Boîte de message */
+.message {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	display: none;
+}
+
+.message button {
+	margin-top: 10px;
+	padding: 10px 15px;
+	background: gray;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.message button:hover {
+	background: lightgray;
+	color: gray;
+}
+
+@media (max-width: 525px) {
+	/* Grille du calendrier */
+	.calendar {
+		grid-template-columns: repeat(7, 45px);
+		grid-gap: 6px;
+		padding: 10px;
+	}
+
+	/* Cases du calendrier */
+	.day {
+		width: 45px;
+		height: 45px;
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 375px) {
+	/* Grille du calendrier */
+	.calendar {
+		grid-template-columns: repeat(7, 35px);
+	}
+
+	/* Cases du calendrier */
+	.day {
+		width: 35px;
+		height: 35px;
+		font-size: 1rem;
+	}
 }
