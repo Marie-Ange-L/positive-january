@@ -3,34 +3,69 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="style.css" />
 		<title>Positive January</title>
+		<meta
+			name="description"
+			content="Daily dose of affirmations for a successful new year."
+		/>
 	</head>
 	<body>
-		<div class="heading-container">
-			<div class="heading">
-				<h1>☀️ Positive January</h1>
-				<p id="subtitle">
-					Votre dose quotidienne d'affirmations positives pour un début d'année
-					réussi.
-				</p>
-			</div>
-			<div class="buttons">
-				<button
-					id="btn-fr"
-					onclick="switchLanguage('fr')"
-					class="language-btn active"
-				>
-					FR
-				</button>
-				<button id="btn-en" onclick="switchLanguage('en')" class="language-btn">
-					EN
-				</button>
-			</div>
+		<div class="buttons">
+			<button
+				id="btn-fr"
+				onclick="switchLanguage('fr')"
+				class="language-btn active"
+			>
+				FR
+			</button>
+			<button
+				id="btn-en"
+				onclick="switchLanguage('en')"
+				class="language-btn inactive"
+			>
+				EN
+			</button>
+		</div>
+		<h1>
+			<span class="emoji">🌞</span> Positive January
+			<span class="emoji">🌞</span>
+		</h1>
+		<div class="heading">
+			<p id="subtitle">
+				Votre dose quotidienne d'affirmations positives pour un début d'année
+				réussi.
+			</p>
 		</div>
 
 		<div class="calendar" id="calendar"></div>
 		<div id="messageBox" class="message"></div>
+		<div class="credits">
+			<small>
+				Cheesy little calendar created with ❤️ by Marie-Ange L. <br />
+				<a
+					href="https://www.marieange.dev/"
+					title="Link to my website (new tab)"
+					target="_blank"
+					>www.marieange.dev</a
+				>
+				|
+				<a
+					href="https://www.instagram.com/marieange_dev/"
+					title="Link to my Instagram (new tab)"
+					target="_blank"
+					>Instagram</a
+				>
+				|
+				<a
+					href="https://www.linkedin.com/in/marie-ange-lhernould/"
+					title="Link to my LinkedIn (new tab)"
+					target="_blank"
+					>LinkedIn</a
+				></small
+			>
+		</div>
 		<script src="script.js"></script>
 	</body>
 </html>

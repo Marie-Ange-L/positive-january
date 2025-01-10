@@ -1,64 +1,71 @@
 body {
 	margin: 0;
 	font-family: "Arial", sans-serif;
-	background: #f6f4f0;
+	background-color: #fbfbeb;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='40' viewBox='0 0 20 16'%3E%3Cg fill='%23e8b86d' fill-opacity='0.2'%3E%3Cpath fill-rule='evenodd' d='M0 .04C2.6.22 4.99 1.1 7 2.5A13.94 13.94 0 0 1 15 0h4c.34 0 .67.01 1 .04v2A12 12 0 0 0 7.17 12h5.12A7 7 0 0 1 20 7.07V14a5 5 0 0 0-3-4.58A5 5 0 0 0 14 14H0V7.07c.86.12 1.67.4 2.4.81.75-1.52 1.76-2.9 2.98-4.05C3.79 2.83 1.96 2.2 0 2.04v-2z'/%3E%3C/g%3E%3C/svg%3E");
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	height: 100vh;
+	color: #222;
 }
 
 h1 {
-	color: #2e5077;
+	font-size: 2rem;
+	margin: 0;
+	background-color: #fbfbeb;
+	border-radius: 50px;
+	padding: 4px 8px 8px;
+	margin-top: 40px;
 }
 
-.heading-container {
-	width: 520px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding: 10px 0;
+.emoji {
+	opacity: 0.7;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .heading {
-	max-width: 70%;
+	max-width: 400px;
+	text-align: center;
+}
+
+.heading p {
+	padding: 0 20px;
+	text-wrap: balance;
+	line-height: 1.4rem;
 }
 
 /* Boutons de langue */
 .buttons {
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
 	margin: 20px 0;
 }
 
 .language-btn {
 	padding: 10px 15px;
-	background: lightgray;
-	color: white;
+	color: #222;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-
 	transition: background 0.3s;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .language-btn#btn-fr {
 	margin-right: 10px;
 }
 
-.language-btn:hover {
-	color: darkgray;
-}
-
-.language-btn.active {
-	background-color: gray;
-	color: white;
+.language-btn.active,
+.language-btn.inactive:hover {
+	background-color: #c5ebaa;
+	color: #222;
 }
 
 .language-btn.inactive {
-	background-color: lightgray;
-	color: black;
+	background-color: #f2fbea;
+	color: #888;
 }
 
 /* Grille du calendrier */
@@ -76,7 +83,7 @@ h1 {
 .day {
 	width: 60px;
 	height: 60px;
-	background: #4da1a9;
+	background: #e8b86d;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -97,12 +104,12 @@ h1 {
 }
 
 .future {
-	background-color: lightgray;
+	background-color: rgb(233, 233, 233);
 }
 
 .day:hover {
 	transform: scale(1.1);
-	background: #4da1a9;
+	background: #e8b86d;
 }
 
 /* Boîte de message */
@@ -112,20 +119,28 @@ h1 {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 20px;
-	background: #79d7be;
+	background: #e1f5d2;
 	border: 4px solid #fff;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	text-align: center;
 	display: none;
+	width: 80vw;
+	max-width: 450px;
 }
 
 .message p {
 	font-weight: bold;
+	font-size: 1.7rem;
+	line-height: 2.4rem;
+	text-wrap: balance;
+	display: inline-block;
+	padding: 4px 4px 5px 4px;
+	margin: 6px 20px;
 }
 
 .message button {
-	margin-top: 10px;
+	margin-top: 40px;
 	padding: 10px 15px;
 	background: #fff;
 	border: none;
@@ -136,6 +151,24 @@ h1 {
 
 .message button:hover {
 	opacity: 1;
+}
+
+.credits {
+	margin: 20px;
+	text-align: center;
+	color: #666;
+	line-height: 1.4rem;
+}
+
+.credits a {
+	color: #666;
+	text-decoration: none;
+}
+
+.credits a:hover {
+	color: #444;
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }
 
 @media (max-width: 525px) {
@@ -149,7 +182,6 @@ h1 {
 		padding: 10px;
 	}
 
-	/* Cases du calendrier */
 	.day {
 		width: 45px;
 		height: 45px;
@@ -166,7 +198,6 @@ h1 {
 		grid-template-columns: repeat(7, 35px);
 	}
 
-	/* Cases du calendrier */
 	.day {
 		width: 35px;
 		height: 35px;
